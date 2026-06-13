@@ -2,7 +2,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import { persistStore, persistReducer } from 'redux-persist'
 import { combineReducers } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage'
-import { exampleFeatureReducer } from './features/exampleFeature'
+import { themeReducer } from './features/themeFeature'
+import { i18nReducer } from './features/i18nFeature'
 
 /**
  * CENTRALIZED PERSISTENCE CONFIGURATION
@@ -15,12 +16,13 @@ import { exampleFeatureReducer } from './features/exampleFeature'
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: ['exampleFeature'], // Add reducers here to persist
+	whitelist: ['exampleFeature', 'theme', 'i18n'], // Add reducers here to persist
 }
 
 // Combine reducers - Add your reducers here
 const rootReducer = combineReducers({
-	exampleFeature: exampleFeatureReducer,
+	theme: themeReducer,
+	i18n: i18nReducer,
 })
 
 // Create persisted reducer - Single point of persistence configuration
