@@ -1,0 +1,79 @@
+@use '@/assets/styles' as *;
+
+.console {
+	max-width: 100%;
+	width: 100%;
+
+	.console-content {
+		display: flex;
+		gap: 11px;
+		align-items: center;
+		padding: 13px 15px;
+		border: 1px solid rgba(184, 23, 36, 0.28);
+		background: rgba(184, 23, 36, 0.055);
+		color: var(--ink);
+		font-family: var(--mono);
+		font-size: 12px;
+		line-height: 1.35;
+
+		.console-text {
+			p {
+				margin: 0;
+			}
+
+			span {
+				margin-left: 4px;
+			}
+		}
+
+		.console-cursor {
+			width: 2px;
+			height: 12px;
+			display: inline-block;
+			background-color: var(--ink);
+			animation: blink 1.05s steps(1) infinite;
+		}
+
+		.console-icon {
+			width: 16px;
+			height: 16px;
+			color: var(--red);
+
+			svg {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
+
+// ===================================
+// DARK MODE — paper is always the light cream
+// ===================================
+.dark .console .console-content {
+	color: var(--paper);
+	background: rgba(184, 23, 36, 0.13);
+	border-color: rgba(212, 35, 47, 0.36);
+
+	.console-cursor {
+		background-color: var(--paper);
+	}
+}
+
+// ===================================
+// JAPANESE FONT
+// ===================================
+.lang-ja .console-text p {
+	font-family: var(--mono);
+}
+
+//===================================
+// MINIMALIST MODE
+//===================================
+.console {
+	.console-content.minimalist {
+		background: none;
+		border: none;
+		font-weight: 600;
+	}
+}

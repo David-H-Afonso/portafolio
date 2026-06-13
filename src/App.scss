@@ -10,7 +10,7 @@
 
 	// Warm paper tones (always light)
 	--paper: #f6f1e8;
-	--paper-2: #fffaf0;
+	--paper-2: #fffaf0eb;
 	--paper-3: #ebe2d4;
 
 	// Ink tones (always dark)
@@ -52,8 +52,8 @@
 // DARK THEME — only override theme tokens
 // ===================================
 .dark {
-	--bg-primary: var(--black);
-	--bg-secondary: var(--charcoal);
+	--bg-primary: var(--charcoal);
+	--bg-secondary: var(--black);
 	--bg-surface: rgba(246, 241, 232, 0.045);
 	--text: var(--paper);
 	--text-muted: rgba(246, 241, 232, 0.62);
@@ -64,7 +64,6 @@
 // JAPANESE FONT OVERRIDES
 // ===================================
 .lang-ja {
-	--mono: #{$jp}, monospace;
 	--sans: #{$jp};
 }
 
