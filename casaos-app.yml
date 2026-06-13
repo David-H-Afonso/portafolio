@@ -1,0 +1,23 @@
+name: portafolio
+services:
+  web:
+    image: ghcr.io/david-h-afonso/portafolio-web:latest
+    container_name: portafolio-web
+    restart: unless-stopped
+    ports:
+      - target: 80
+        published: '8090'
+        protocol: tcp
+
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  main: web
+  description:
+    en_us: Personal portfolio website
+  tagline:
+    en_us: Portafolio personal
+  icon: https://raw.githubusercontent.com/David-H-Afonso/portafolio/master/public/favicon.ico
+  index: /
+  port_map: '8090'
