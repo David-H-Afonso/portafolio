@@ -1,8 +1,11 @@
 import './App.scss'
-import Home from '@/components/Home/containers/Home'
+import { RouterProvider } from 'react-router-dom'
+import { router } from '@/navigation/router'
+import { useThemeLang } from '@/hooks'
 
 function App() {
-	return <Home />
+	useThemeLang()
+	return <RouterProvider router={router} />
 }
 
 export default App

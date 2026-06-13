@@ -1,21 +1,12 @@
-import React from 'react'
-import { EmptyLayout, AppLayout } from '@/layouts'
+import { AppLayout } from './AppLayout'
+import { EmptyLayout } from './EmpyLayout'
 
-interface LayoutProviderProps {
-	children: React.ReactNode
-}
+type LayoutType = 'app' | 'empty'
 
-export const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
-	// Get layout type from Redux store
-	// const layoutType = useSelector((state: RootState) => state.layout.layoutType)
-	const layoutType: string = 'app' // Temporary hardcoded value; replace with the line above when Redux is set up
+export const LayoutProvider = () => {
+	// const layoutType = useAppSelector((state) => state.layout.layoutType) as LayoutType
+	const layoutType = 'app' as LayoutType
 
-	switch (layoutType) {
-		case 'empty':
-			return <EmptyLayout>{children}</EmptyLayout>
-		case 'app':
-			return <AppLayout>{children}</AppLayout>
-		default:
-			return <AppLayout>{children}</AppLayout>
-	}
+	if (layoutType === 'empty') return <EmptyLayout />
+	return <AppLayout />
 }

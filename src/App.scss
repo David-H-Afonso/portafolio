@@ -1,19 +1,90 @@
-// Importar el sistema de temas
 @use '@/assets/styles' as *;
 
+// ===================================
+// FIXED PALETTE — never change with theme
+// ===================================
+:root {
+	// Typography
+	--mono: #{$mono};
+	--sans: #{$sans};
+
+	// Warm paper tones (always light)
+	--paper: #f6f1e8;
+	--paper-2: #fffaf0;
+	--paper-3: #ebe2d4;
+
+	// Ink tones (always dark)
+	--ink: #11110f;
+	--ink-2: #24231f;
+	--muted: #746f67;
+	--muted-2: #918a7f;
+
+	// Brand red
+	--red: #b81724;
+	--red-2: #d4232f;
+	--red-soft: rgba(184, 23, 36, 0.1);
+
+	// Dark surfaces
+	--black: #090908;
+	--charcoal: #171614;
+
+	// Borders
+	--line: rgba(17, 17, 15, 0.13);
+	--line-strong: rgba(17, 17, 15, 0.25);
+	--line-dark: rgba(246, 241, 232, 0.16);
+
+	// Shadows
+	--shadow: 0 28px 80px rgba(32, 23, 16, 0.2);
+	--shadow-hard: 0 26px 70px rgba(0, 0, 0, 0.32);
+
+	// ===================================
+	// THEME TOKENS — light (default)
+	// ===================================
+	--bg-primary: var(--paper-2);
+	--bg-secondary: var(--paper);
+	--bg-surface: rgba(255, 255, 255, 0.42);
+	--text: var(--ink);
+	--text-muted: var(--muted);
+	--border: var(--line);
+}
+
+// ===================================
+// DARK THEME — only override theme tokens
+// ===================================
+.dark {
+	--bg-primary: var(--black);
+	--bg-secondary: var(--charcoal);
+	--bg-surface: rgba(246, 241, 232, 0.045);
+	--text: var(--paper);
+	--text-muted: rgba(246, 241, 232, 0.62);
+	--border: var(--line-dark);
+}
+
+// ===================================
+// JAPANESE FONT OVERRIDES
+// ===================================
+.lang-ja {
+	--mono: #{$jp}, monospace;
+	--sans: #{$jp};
+}
+
+// ===================================
+// ROOT STYLES
+// ===================================
 #root {
 	min-width: 100%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: var(--sans);
 	background-color: var(--bg-primary);
+	color: var(--text);
 	min-height: 100vh;
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: var(--sans);
 	background-color: var(--bg-primary);
 }

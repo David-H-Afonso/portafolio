@@ -1,27 +1,36 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Home from '@/components/Home/containers/Home'
-
-// TODO: DO THIS BETTER AND WITH CUSTOM ROUTES IN SEPARATE FILES
+import Error404 from '@/components/Error404/containers/Error404'
+import { CatchAll } from '@/components/elements'
+import { LayoutProvider } from '@/layouts'
 
 export const router = createBrowserRouter([
 	{
-		path: '/',
-		element: <Home />,
-		errorElement: <Home />,
+		element: <LayoutProvider />,
 		children: [
 			{
-				index: true,
+				path: '/',
 				element: <Home />,
+				errorElement: <Home />,
+				children: [
+					{
+						index: true,
+						element: <Home />,
+					},
+					{
+						path: 'settings',
+						element: <Home />,
+					},
+				],
 			},
 			{
-				path: 'settings',
-				element: <Home />,
+				path: '/404',
+				element: <Error404 />,
+			},
+			{
+				path: '*',
+				element: <CatchAll />,
 			},
 		],
-	},
-	{
-		path: '*',
-		element: <div>Page not found</div>,
-		errorElement: <Home />,
 	},
 ])

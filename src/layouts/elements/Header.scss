@@ -1,1 +1,131 @@
 @use '@/assets/styles' as *;
+
+.app-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	border-bottom: 1px solid var(--border);
+	background: var(--bg-primary);
+	color: var(--text);
+	font-family: var(--mono);
+	font-size: 13px;
+
+	.header-content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 0 24px;
+		height: 52px;
+		max-width: 100%;
+		overflow: scroll;
+	}
+
+	.header-logo {
+		font-family: var(--mono);
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--text);
+		text-decoration: none;
+		letter-spacing: 0.04em;
+		white-space: nowrap;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	.header-nav {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		flex: 1;
+		justify-content: center;
+	}
+
+	.nav-link {
+		padding: 5px 12px;
+		color: var(--text-muted);
+		text-decoration: none;
+		border: 1px solid transparent;
+		transition:
+			color 0.15s,
+			border-color 0.15s;
+
+		&:hover {
+			color: var(--text);
+		}
+
+		&.active {
+			color: var(--text);
+			border-color: var(--border);
+		}
+	}
+
+	.header-controls {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.lang-switcher {
+		display: flex;
+		align-items: center;
+		border: 1px solid var(--border);
+		overflow: hidden;
+	}
+
+	.lang-btn {
+		padding: 4px 9px;
+		background: transparent;
+		border: none;
+		border-right: 1px solid var(--border);
+		color: var(--text-muted);
+		font-family: var(--mono);
+		font-size: 11px;
+		cursor: pointer;
+		transition:
+			color 0.15s,
+			background 0.15s;
+
+		&:last-child {
+			border-right: none;
+		}
+
+		&:hover {
+			color: var(--text);
+		}
+
+		&.active {
+			color: var(--paper-2);
+			background: var(--red);
+		}
+	}
+
+	.theme-toggle {
+		padding: 4px 12px;
+		background: transparent;
+		border: 1px solid var(--border);
+		color: var(--text-muted);
+		font-family: var(--mono);
+		font-size: 11px;
+		cursor: pointer;
+		transition:
+			color 0.15s,
+			border-color 0.15s;
+
+		&:hover {
+			color: var(--text);
+			border-color: var(--text);
+		}
+	}
+}
+
+// ===================================
+// DARK MODE
+// ===================================
+.dark .app-header {
+	background: rgba(17, 16, 14, 0.88);
+	backdrop-filter: blur(18px);
+	border-bottom-color: var(--border);
+}

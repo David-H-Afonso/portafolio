@@ -1,15 +1,13 @@
-import React from 'react'
+import { Outlet } from 'react-router-dom'
 import { Header } from './elements'
 
-interface AppLayoutProps {
-	children: React.ReactNode
-}
-
-export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
+export const AppLayout = () => {
 	return (
 		<div className='app-layout'>
 			<Header />
-			<main className='app-layout__content'>{children}</main>
+			<main className='app-layout__content'>
+				<Outlet />
+			</main>
 		</div>
 	)
 }
