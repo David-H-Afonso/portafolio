@@ -17,8 +17,8 @@ function getApiBaseUrl(): string {
 		return import.meta.env.VITE_API_URL as string
 	}
 
-	// Fallback por si acaso
-	return 'http://localhost:5000'
+	// No plaintext localhost fallback in production. Use a relative API path by default.
+	return ''
 }
 
 export const environment = {

@@ -15,7 +15,7 @@ Personal portfolio built with React and TypeScript. Features a custom component 
 
 ## Getting Started
 
-**Prerequisites:** Node.js 18+ and npm 9+
+**Prerequisites:** Node.js 20.19+ or 22.12+ and npm 10+
 
 ```bash
 # Clone and install

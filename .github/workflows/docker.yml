@@ -21,6 +21,25 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+
+            - name: Install dependencies
+              run: |
+                  if [ -f package-lock.json ]; then
+                    npm ci --no-audit --no-fund
+                  else
+                    npm install --no-audit --no-fund
+                  fi
+
+            - name: Run security checks
+              run: npm run security:all
+
+            - name: Build frontend
+              run: npm run build
+
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v3
 

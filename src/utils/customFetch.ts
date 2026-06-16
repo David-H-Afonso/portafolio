@@ -97,6 +97,12 @@ const createTimeoutPromise = (timeoutMs: number): Promise<never> => {
 	})
 }
 
+const redactUrlForError = (requestUrl: string): string => {
+	const [urlWithoutHash] = requestUrl.split('#')
+	const [urlWithoutQuery] = urlWithoutHash.split('?')
+	return urlWithoutQuery
+}
+
 /**
  * Universal HTTP client for making API requests with automatic JSON handling,
  * query parameter encoding, and comprehensive error handling
@@ -176,7 +182,9 @@ export const customFetch = async <T = any>(
 	} catch (fetchError) {
 		// Re-throw with enhanced error context
 		if (fetchError instanceof Error) {
-			throw new Error(`Request failed for ${method} ${completeUrl}: ${fetchError.message}`)
+			throw new Error(
+				`Request failed for ${method} ${redactUrlForError(completeUrl)}: ${fetchError.message}`
+			)
 		}
 		throw fetchError
 	}

@@ -7,9 +7,8 @@ interface Props {
 
 const HomeComponent: FC<Props> = (props) => {
 	const { test } = props
-	console.log(test)
 
-	return <div className='home-component'></div>
+	return <div className='home-component'>{test}</div>
 }
 
 export default HomeComponent
